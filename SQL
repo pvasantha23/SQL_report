@@ -1,0 +1,38 @@
+
+  CREATE TABLE CUSTOMER
+  (
+  USER_ID NUMBER(5) PRIMARY KEY,
+  USERNAME VARCHAR(18) NOT NULL,
+  EMAIL VARCHAR(20) NOT NULL,
+  CITY VARCHAR(15) NOT NULL,
+  COUNTRY VARCHAR(7) NOT NULL
+* );
+
+CREATE TABLE MOBILE
+(
+MOBILE_ID NUMBER(5) PRIMARY KEY,
+BRAND VARCHAR(15) NOT NULL,
+MODEL VARCHAR(17) NOT NULL,
+PRICE NUMBER(10) NOT NULL,
+USER_ID NUMBER(5) REFERENCES CUSTOMER(USER_ID));
+
+
+SQL> DESCRIBE CUSTOMER;
+ Name                                                  Null?    Type
+ ----------------------------------------------------- -------- ------------------------------------
+ USER_ID                                               NOT NULL NUMBER(5)
+ USERNAME                                              NOT NULL VARCHAR2(18)
+ EMAIL                                                 NOT NULL VARCHAR2(20)
+ CITY                                                  NOT NULL VARCHAR2(15)
+ COUNTRY                                               NOT NULL VARCHAR2(7)
+
+SQL> DESCRIBE MOBILE;
+ Name                                                  Null?    Type
+ ----------------------------------------------------- -------- ------------------------------------
+ MOBILE_ID                                             NOT NULL NUMBER(5)
+ BRAND                                                 NOT NULL VARCHAR2(15)
+ MODEL                                                 NOT NULL VARCHAR2(17)
+ PRICE                                                 NOT NULL NUMBER(10)
+ USER_ID                                                        NUMBER(5)
+
+SQL> 
