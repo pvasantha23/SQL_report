@@ -1,0 +1,159 @@
+SQL> INSERT INTO CUSTOMER VALUES(&USER_ID,'&USERNAME','&EMAIL','&CITY','&COUNTRY');
+Enter value for user_id: 11
+Enter value for username: VASANTHA
+Enter value for email: VASU@EMAIL.COM
+Enter value for city: NEW YORK
+Enter value for country: USA
+old   1: INSERT INTO CUSTOMER VALUES(&USER_ID,'&USERNAME','&EMAIL','&CITY','&COUNTRY')
+new   1: INSERT INTO CUSTOMER VALUES(11,'VASANTHA','VASU@EMAIL.COM','NEW YORK','USA')
+
+1 row created.
+
+SQL> /
+Enter value for user_id: 12
+Enter value for username: SUKANYA
+Enter value for email: SUKU@EMAIL.COM
+Enter value for city: LOS ANGELES
+Enter value for country: USA
+old   1: INSERT INTO CUSTOMER VALUES(&USER_ID,'&USERNAME','&EMAIL','&CITY','&COUNTRY')
+new   1: INSERT INTO CUSTOMER VALUES(12,'SUKANYA','SUKU@EMAIL.COM','LOS ANGELES','USA')
+
+1 row created.
+
+SQL> /
+Enter value for user_id: 13
+Enter value for username: ANITHA
+Enter value for email: ANI@EMAIL.COM
+Enter value for city: CHICAGO
+Enter value for country: USA
+old   1: INSERT INTO CUSTOMER VALUES(&USER_ID,'&USERNAME','&EMAIL','&CITY','&COUNTRY')
+new   1: INSERT INTO CUSTOMER VALUES(13,'ANITHA','ANI@EMAIL.COM','CHICAGO','USA')
+
+1 row created.
+
+SQL> /
+Enter value for user_id: 14
+Enter value for username: MANASA
+Enter value for email: MANAS@EMAIL.COM
+Enter value for city: HOUSTON
+Enter value for country: USA
+old   1: INSERT INTO CUSTOMER VALUES(&USER_ID,'&USERNAME','&EMAIL','&CITY','&COUNTRY')
+new   1: INSERT INTO CUSTOMER VALUES(14,'MANASA','MANAS@EMAIL.COM','HOUSTON','USA')
+
+1 row created.
+
+SQL> /
+Enter value for user_id: 15
+Enter value for username: DEEPIKA
+Enter value for email: DEEPU@EMAIL.COM
+Enter value for city: PHOENIX
+Enter value for country: USA
+old   1: INSERT INTO CUSTOMER VALUES(&USER_ID,'&USERNAME','&EMAIL','&CITY','&COUNTRY')
+new   1: INSERT INTO CUSTOMER VALUES(15,'DEEPIKA','DEEPU@EMAIL.COM','PHOENIX','USA')
+
+1 row created.
+SQL> SELECT *
+  2  FROM CUSTOMER;
+
+   USER_ID USERNAME           EMAIL                CITY            COUNTRY
+---------- ------------------ -------------------- --------------- -------
+        11 VASANTHA           VASU@EMAIL.COM       NEW YORK        USA
+        12 SUKANYA            SUKU@EMAIL.COM       LOS ANGELES     USA
+        13 ANITHA             ANI@EMAIL.COM        CHICAGO         USA
+        14 MANASA             MANAS@EMAIL.COM      HOUSTON         USA
+        15 DEEPIKA            DEEPU@EMAIL.COM      PHOENIX         USA
+        SQL>  INSERT INTO MOBILE VALUES(&MOBILE_ID,'&BRAND','&MODEL',&PRICE,&USER_ID);
+Enter value for mobile_id: 101
+Enter value for brand: SAMSUNG
+Enter value for model: GALAXY S21
+Enter value for price: 800
+Enter value for user_id: 11
+old   1:  INSERT INTO MOBILE VALUES(&MOBILE_ID,'&BRAND','&MODEL',&PRICE,&USER_ID)
+new   1:  INSERT INTO MOBILE VALUES(101,'SAMSUNG','GALAXY S21',800,11)
+
+1 row created.
+
+SQL> /
+Enter value for mobile_id: 102
+Enter value for brand: APPLE
+Enter value for model: IPHONE 13
+Enter value for price: 1000
+Enter value for user_id: 12
+old   1:  INSERT INTO MOBILE VALUES(&MOBILE_ID,'&BRAND','&MODEL',&PRICE,&USER_ID)
+new   1:  INSERT INTO MOBILE VALUES(102,'APPLE','IPHONE 13',1000,12)
+
+1 row created.
+
+SQL> /
+Enter value for mobile_id: 103
+Enter value for brand: ONEPLUS
+Enter value for model: NORD 2
+Enter value for price: 400
+Enter value for user_id: 13
+old   1:  INSERT INTO MOBILE VALUES(&MOBILE_ID,'&BRAND','&MODEL',&PRICE,&USER_ID)
+new   1:  INSERT INTO MOBILE VALUES(103,'ONEPLUS','NORD 2',400,13)
+
+1 row created.
+
+SQL> /
+Enter value for mobile_id: 104
+Enter value for brand: GOOGLE
+Enter value for model: PIXEL 6
+Enter value for price: 600
+Enter value for user_id: 14
+old   1:  INSERT INTO MOBILE VALUES(&MOBILE_ID,'&BRAND','&MODEL',&PRICE,&USER_ID)
+new   1:  INSERT INTO MOBILE VALUES(104,'GOOGLE','PIXEL 6',600,14)
+
+1 row created.
+
+SQL> /
+Enter value for mobile_id: 105
+Enter value for brand: XIAOMI
+Enter value for model: MI 11
+Enter value for price: 500
+Enter value for user_id: 15
+old   1:  INSERT INTO MOBILE VALUES(&MOBILE_ID,'&BRAND','&MODEL',&PRICE,&USER_ID)
+new   1:  INSERT INTO MOBILE VALUES(105,'XIAOMI','MI 11',500,15)
+
+1 row created.
+
+SQL> SELECT *
+  2  FROM MOBILE;
+
+ MOBILE_ID BRAND           MODEL                  PRICE    USER_ID
+---------- --------------- ----------------- ---------- ----------
+       101 SAMSUNG         GALAXY S21               800         11
+       102 APPLE           IPHONE 13               1000         12
+       103 ONEPLUS         NORD 2                   400         13
+       104 GOOGLE          PIXEL 6                  600         14
+      105 XIAOMI          MI 11                    500         15
+  SQL> UPDATE CUSTOMER
+  2  SET USERNAME='USHA'
+  3  WHERE USER_ID=13;
+
+1 row updated.
+SQL> SELECT *
+  2  FROM CUSTOMER;
+
+   USER_ID USERNAME           EMAIL                CITY            COUNTRY
+---------- ------------------ -------------------- --------------- -------
+        11 VASANTHA           VASU@EMAIL.COM       NEW YORK        USA
+        12 SUKANYA            SUKU@EMAIL.COM       LOS ANGELES     USA
+        13 USHA               ANI@EMAIL.COM        CHICAGO         USA
+        14 MANASA             MANAS@EMAIL.COM      HOUSTON         USA
+        15 DEEPIKA            DEEPU@EMAIL.COM      PHOENIX         USA
+SQL> DELETE
+  2  FROM MOBILE
+  3  WHERE BRAND='GOOGLE';
+
+1 row deleted.
+SQL> SELECT *
+  2  FROM MOBILE;
+
+ MOBILE_ID BRAND           MODEL                  PRICE    USER_ID
+---------- --------------- ----------------- ---------- ----------
+       101 SAMSUNG         GALAXY S21               800         11
+       102 APPLE           IPHONE 13               1000         12
+       103 ONEPLUS         NORD 2                   400         13
+       105 XIAOMI          MI 11                    500         15
+
