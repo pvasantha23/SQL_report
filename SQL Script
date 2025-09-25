@@ -1,0 +1,130 @@
+SQL> SELECT*
+  2  FROM CUSTOMER;
+
+   USER_ID USERNAME           EMAIL                CITY            COUNTRY
+---------- ------------------ -------------------- --------------- -------
+        11 VASANTHA           VASU@EMAIL.COM       NEW YORK        USA
+        12 SUKANYA            SUKU@EMAIL.COM       LOS ANGELES     USA
+        13 ANITHA             ANI@EMAIL.COM        CHICAGO         USA
+        14 MANASA             MANAS@EMAIL.COM      HOUSTON         USA
+        15 DEEPIKA            DEEPU@EMAIL.COM      PHOENIX         USA
+
+SQL> SELECT*
+  2  FROM MOBILE;
+
+ MOBILE_ID BRAND           MODEL                  PRICE    USER_ID
+---------- --------------- ----------------- ---------- ----------
+       101 SAMSUNG         GALAXY S21               800         11
+       102 APPLE           IPHONE 13               1000         12
+       103 ONEPLUS         NORD 2                   400         13
+       104  GOOGLE         PIXEL 6                  600         14
+       105 XIAOM            MI 11                   500         15
+
+SQL> SELECT CITY,EMAIL
+  2  FROM CUSTOMER;
+
+CITY            EMAIL
+--------------- --------------------
+NEW YORK        VASU@EMAIL.COM
+LOS ANGELES     SUKU@EMAIL.COM
+CHICAGO         ANI@EMAIL.COM
+HOUSTON         MANAS@EMAIL.COM
+PHOENIX         DEEPU@EMAIL.COM
+
+SQL> SELECT USERNAME
+  2  FROM CUSTOMER
+  3  WHERE COUNTRY='USA';
+
+USERNAME
+------------------
+VASANTHA
+SUKANYA
+ANITHA
+MANASA
+DEEPIKA
+
+SQL> SELECT *
+  2  FROM CUSTOMER
+  3  WHERE CITY ='NEW YORK'AND USERNAME='MANASA';
+
+no rows selected
+
+SQL> SELECT EMAIL
+  2  FROM CUSTOMER
+  3  WHERE USERNAME='ANITHA';
+
+EMAIL
+--------------------
+ANI@EMAIL.COM
+
+  1  SELECT USERNAME
+  2  FROM CUSTOMER
+  3* WHERE CITY ='NEW YORK' OR CITY='CHICAGO'
+SQL> //;
+
+USERNAME
+------------------
+VASANTHA
+ANITHA
+
+SQL> SELECT CITY
+  2  FROM CUSTOMER
+  3  WHERE USERNAME='VASANTHA' AND EMAIL='DEEPU@EMAIL.COM';
+
+no rows selected
+
+  1  SELECT *
+  2  FROM CUSTOMER
+  3* WHERE CITY= 'CHICAGO' AND EMAIL='VASU@EMAIL.COM'
+SQL> //;
+
+no rows selected
+
+SQL> SELECT *
+  2  FROM CUSTOMER
+  3  WHERE USERNAME LIKE '%A%';
+
+   USER_ID USERNAME           EMAIL                CITY            COUNTRY
+---------- ------------------ -------------------- --------------- -------
+        11 VASANTHA           VASU@EMAIL.COM       NEW YORK        USA
+        12 SUKANYA            SUKU@EMAIL.COM       LOS ANGELES     USA
+        13 ANITHA             ANI@EMAIL.COM        CHICAGO         USA
+        14 MANASA             MANAS@EMAIL.COM      HOUSTON         USA
+        15 DEEPIKA            DEEPU@EMAIL.COM      PHOENIX         USA
+
+SQL> SELECT *
+  2  FROM CUSTOMER
+  3  WHERE USERNAME LIKE '___A%';
+
+   USER_ID USERNAME           EMAIL                CITY            COUNTRY
+---------- ------------------ -------------------- --------------- -------
+        11 VASANTHA           VASU@EMAIL.COM       NEW YORK        USA
+        12 SUKANYA            SUKU@EMAIL.COM       LOS ANGELES     USA
+        14 MANASA             MANAS@EMAIL.COM      HOUSTON         USA
+
+SQL> SELECT *
+  2  FROM CUSTOMER
+  3  WHERE CITY='NEW YORK' AND USER_ID=13;
+
+no rows selected
+
+  1  SELECT *
+  2  FROM CUSTOMER
+  3* WHERE CITY BETWEEN 'NEW YORK' AND 'HOUSTON'
+SQL> //;
+
+no rows selected
+
+SQL> SELECT *
+  2  FROM CUSTOMER
+  3  WHERE USERNAME LIKE'%A%'
+  4  ORDER BY USERNAME DESC;
+
+   USER_ID USERNAME           EMAIL                CITY            COUNTRY
+---------- ------------------ -------------------- --------------- -------
+        11 VASANTHA           VASU@EMAIL.COM       NEW YORK        USA
+        12 SUKANYA            SUKU@EMAIL.COM       LOS ANGELES     USA
+        14 MANASA             MANAS@EMAIL.COM      HOUSTON         USA
+        15 DEEPIKA            DEEPU@EMAIL.COM      PHOENIX         USA
+        13 ANITHA             ANI@EMAIL.COM        CHICAGO         USA
+
