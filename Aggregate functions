@@ -1,0 +1,59 @@
+
+SQL> SELECT SUM(PRICE)
+  2  FROM MOBILE
+  3  ;
+
+SUM(PRICE)
+----------
+      3300
+
+SQL> SELECT SUM(PRICE)
+  2  FROM MOBILE
+  3  WHERE BRAND IN('SAMSUNG  ','APPLE');
+
+SUM(PRICE)
+----------
+      1000
+
+SQL> SELECT COUNT(*)
+  2  FROM CUSTOMER
+  3  WHERE USERNAME IN('VASANTHA','SUKANYA','ANITHA');
+
+  COUNT(*)
+----------
+         3
+
+SQL> SELECT SUM(PRICE),COUNT(*)
+  2  FROM MOBILE
+  3  WHERE BRAND IN('GOOGLE','ONEPLUS');
+
+SUM(PRICE)   COUNT(*)
+---------- ----------
+       400          1
+
+SQL> SELECT AVG(PRICE)
+  2  FROM MOBILE
+  3  GROUP BY MODEL;
+
+AVG(PRICE)
+----------
+       400
+       600
+       500
+       800
+      1000
+
+SQL> SELECT AVG(PRICE),COUNT(*)
+  2  FROM MOBILE
+  3  WHERE BRAND IN (' XIAOM','GOOGLE')
+  4  GROUP BY MODEL;
+
+no rows selected
+
+SQL> SELECT SUM(PRICE),COUNT(*)
+  2  FROM MOBILE
+  3  WHERE BRAND IN('SAMSUNG','GOOGLE')
+  4  GROUP BY BRAND
+  5  HAVING COUNT(*)=3;
+
+no rows selected
