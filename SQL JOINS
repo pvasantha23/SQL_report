@@ -1,0 +1,59 @@
+
+  1  SELECT USERNAME,EMAIL,MODEL
+  2  FROM CUSTOMER,MOBILE
+  3* WHERE CUSTOMER.USER_ID=MOBILE.USER_ID AND USERNAME='VASANTHA'
+SQL> //;
+
+USERNAME           EMAIL                MODEL
+------------------ -------------------- -----------------
+VASANTHA           VASU@EMAIL.COM       GALAXY S21
+
+SQL> SELECT USERNAME,CITY,PRICE,BRAND
+  2  FROM CUSTOMER,MOBILE
+  3  WHERE CUSTOMER.USER_ID=MOBILE.USER_ID AND USERNAME LIKE '%A%';
+
+USERNAME           CITY                 PRICE BRAND
+------------------ --------------- ---------- ---------------
+VASANTHA           NEW YORK               800 SAMSUNG
+SUKANYA            LOS ANGELES           1000 APPLE
+ANITHA             CHICAGO                400 ONEPLUS
+MANASA             HOUSTON                600  GOOGLE
+DEEPIKA            PHOENIX                500 XIAOM
+
+SQL> SELECT USERNAME,PRICE
+  2  FROM CUSTOMER,MOBILE
+  3  WHERE CUSTOMER.USER_ID=MOBILE.USER_ID(+);
+
+USERNAME                PRICE
+------------------ ----------
+VASANTHA                  800
+SUKANYA                  1000
+ANITHA                    400
+MANASA                    600
+DEEPIKA                   500
+
+SQL> SELECT USERNAME,PRICE
+  2  FROM CUSTOMER,MOBILE
+  3  WHERE CUSTOMER.USER_ID(+)=MOBILE.USER_ID;
+
+USERNAME                PRICE
+------------------ ----------
+VASANTHA                  800
+SUKANYA                  1000
+ANITHA                    400
+MANASA                    600
+DEEPIKA                   500
+
+SQL> SET LINES 200 PAGES 200
+SQL> SELECT *
+  2  FROM CUSTOMER C FULL OUTER JOIN MOBILE M
+  3  ON C.USER_ID=M.USER_ID;
+
+   USER_ID USERNAME           EMAIL                CITY            COUNTRY  MOBILE_ID BRAND           MODEL                  PRICE    USE
+---------- ------------------ -------------------- --------------- ------- ---------- --------------
+        11 VASANTHA           VASU@EMAIL.COM       NEW YORK        USA            101 SAMSUNG         GALAXY S21               800         1
+        12 SUKANYA            SUKU@EMAIL.COM       LOS ANGELES     USA            102 APPLE           IPHONE 13               1000         1
+        13 ANITHA             ANI@EMAIL.COM        CHICAGO         USA            103 ONEPLUS         NORD 2                   400         13
+        14 MANASA             MANAS@EMAIL.COM      HOUSTON         USA            104  GOOGLE         PIXEL 6                  600         14
+        15 DEEPIKA            DEEPU@EMAIL.COM      PHOENIX         USA            105 XIAOM            MI 11                   500         15
+
