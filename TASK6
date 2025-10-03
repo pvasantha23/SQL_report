@@ -1,0 +1,73 @@
+SQL> SELECT *
+  2  FROM CUSTOMER
+  3  WHERE USERNAME IN('VASANTHA','DEEPIKA');
+
+   USER_ID USERNAME           EMAIL                CITY            COUNTRY
+---------- ------------------ -------------------- --------------- -------
+        11 VASANTHA           VASU@EMAIL.COM       NEW YORK        USA
+        15 DEEPIKA            DEEPU@EMAIL.COM      PHOENIX         USA
+SQL> EDIT
+Wrote file afiedt.buf
+
+  1  SELECT BRAND
+  2  FROM MOBILE
+  3  WHERE USER_ID=(SELECT USER_ID
+  4  FROM CUSTOMER
+  5* WHERE USERNAME='ANITHA')
+SQL> //;
+
+BRAND
+---------------
+ONEPLUS
+SQL> EDIT
+Wrote file afiedt.buf
+
+  1   SELECT PRICE
+  2   FROM MOBILE
+  3   WHERE EXISTS(SELECT USER_ID
+  4   FROM CUSTOMER
+  5*  WHERE EMAIL='VASU@EMAIL.COM')
+SQL> //;
+
+     PRICE
+----------
+       800
+      1000
+       400
+       600
+       500
+
+SQL> EDIT
+Wrote file afiedt.buf
+
+  1  SELECT C1.USERNAME
+  2  FROM CUSTOMER C1
+  3  WHERE EXISTS(SELECT M1.USER_ID
+  4  FROM MOBILE M1
+  5* WHERE C1.USER_ID=M1.USER_ID)
+SQL> //;
+
+USERNAME
+------------------
+VASANTHA
+SUKANYA
+ANITHA
+MANASA
+DEEPIKA
+SQL> EDIT
+Wrote file afiedt.buf
+
+  1  SELECT C1.CITY
+  2  FROM CUSTOMER C1
+  3  WHERE EXISTS(SELECT M1.USER_ID
+  4  FROM MOBILE M1
+  5* WHERE C1.USER_ID=M1.USER_ID)
+SQL> //;
+
+CITY
+---------------
+NEW YORK
+LOS ANGELES
+CHICAGO
+HOUSTON
+PHOENIX
